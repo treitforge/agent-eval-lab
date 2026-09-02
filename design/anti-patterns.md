@@ -1,7 +1,6 @@
 # Anti-patterns and visual budgets
 
-These limits are hard constraints. If a task appears to require exceeding one, revisit its
-topology or update the design contract explicitly before implementation.
+These limits are requirements. If a design exceeds a limit, change the layout or update this contract before implementation.
 
 ## Visual budgets
 
@@ -21,34 +20,31 @@ topology or update the design contract explicitly before implementation.
 
 ## Forbidden patterns
 
-- A row of large KPI cards or a card grid as the page composition.
-- A card around the candidate table, a page section, filters, metrics, or a form.
+- A row of large metric cards or a card grid as the page layout.
+- A card around the trial table, a page section, metrics, or a form.
 - A card around another card or a bordered panel nested inside another bordered panel.
 - Structural use of a generic `Card` component. See `components/card.md` for the narrow
   exceptions.
-- A permanently visible discovery form beside the table.
-- A large empty jobs card when no activity exists.
+- A large empty region when no evidence exists.
 - More than one prominent primary action in the same persistent view.
 - Multiple full-width solid primary buttons.
-- A repeated “Explore” action in every candidate row; selecting the row or repository name
-  opens the inspector.
+- A repeated detail action in each trial row. The row opens the inspector.
 - Decorative icons beside every heading.
 - Repeated tiny uppercase eyebrow headings.
 - Pills for ordinary text or every metadata value.
 - Large empty-state illustrations or generic hero copy above the workbench.
-- Duplicate information in multiple regions without a functional reason.
+- Duplicate information that has no functional reason.
 - `rounded-xl` or `rounded-2xl` on structural regions, raw radius values, or nested rounded
   containers.
 - `shadow-*` or `box-shadow` outside a floating overlay.
 - `bg-gradient-*`, CSS gradients, glassmorphism, glow, `backdrop-blur-*`, or CSS backdrop
   blur.
-- Raw color values or framework palette utilities instead of semantic tokens.
+- Raw color values instead of semantic tokens.
 - Spacing values outside the approved scale or raw spacing values instead of tokens.
 - A tinted page background whose purpose is to reveal white cards.
 
-## Audit boundary
+## Review boundary
 
-`scripts/ui-audit.mjs` checks the mechanically detectable rules in UI source. It cannot
-judge information hierarchy, duplicate meaning, density, whether a surface is necessary,
-or whether a card exception is honest. Human review against this file and
-`principles.md` remains required.
+Automated tests can check only some rules. They cannot judge hierarchy, duplicate meaning, density, or the need for a surface.
+
+A human must also review the interface against this file and `principles.md`.

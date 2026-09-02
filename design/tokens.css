@@ -1,4 +1,4 @@
-/* RepoScout design tokens. UI source must consume these semantic values, not raw values. */
+/* Agent Eval Lab interface tokens. Use these semantic values in the dashboard. */
 :root {
   color-scheme: light;
 

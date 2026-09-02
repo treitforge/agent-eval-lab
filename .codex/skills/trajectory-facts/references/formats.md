@@ -4,7 +4,9 @@
 
 ### Agent Trajectory Interchange Format
 
-ATIF is the first-class agent trajectory format. The analyzer reads the root `schema_version`, `agent`, `steps`, `tool_calls`, `observation`, and `final_metrics` fields. It preserves the ATIF step number in each evidence reference.
+ATIF is the primary trajectory format. The analyzer reads `schema_version`, `agent`, `steps`, `tool_calls`, `observation`, and `final_metrics`.
+
+The analyzer preserves the ATIF step number in each evidence reference.
 
 Specification: <https://github.com/harbor-framework/harbor/blob/main/rfcs/0001-trajectory-format.md>
 
@@ -12,7 +14,9 @@ Harbor documentation: <https://www.harborframework.com/docs/agents/trajectory-fo
 
 ### OpenTelemetry Protocol JSON
 
-The analyzer reads OTLP JSON trace data from `resourceSpans`, `scopeSpans`, and `spans`. It uses explicit span status and duration fields. It also reads `gen_ai.*` attributes when they are present.
+The analyzer reads OTLP JSON trace data from `resourceSpans`, `scopeSpans`, and `spans`. It uses explicit span status and duration fields.
+
+The analyzer also reads available `gen_ai.*` attributes.
 
 OTLP specification: <https://opentelemetry.io/docs/specs/otlp/>
 
@@ -20,13 +24,15 @@ File exporter specification: <https://opentelemetry.io/docs/specs/otel/protocol/
 
 ## Tool-specific formats
 
-These formats are not one shared standard. The analyzer uses separate adapters.
+These formats do not use one common schema. The analyzer uses a separate adapter for each format.
 
 - SWE-agent `.traj` JSON with a `trajectory` array.
 - Mini-SWE-Agent JSON with `trajectory_format` and `messages`.
 - OpenAI-style chat JSON with `messages`, roles, tool calls, and tool results.
 - Common native JSONL events from Codex and Claude Code.
-- OpenHands-style event arrays. Prefer Harbor's ATIF conversion when it is available.
+- OpenHands event arrays.
+
+Use Harbor's ATIF conversion when it is available.
 
 SWE-agent output documentation: <https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/trajectories.md>
 
@@ -34,6 +40,8 @@ Mini-SWE-Agent example format: <https://github.com/SWE-agent/mini-traj-web-brows
 
 ## Detection limits
 
-Native exports can change without a schema-version field. Auto-detection reports the selected adapter. Check the producer documentation and the source event when an important field is missing.
+Native exports can change without a schema-version field. Format detection reports the selected adapter.
 
-The analyzer does not claim that every vendor export is a standard. Add a new adapter and fixture when a new stable shape appears.
+Check the producer documentation and source event when an important field is missing.
+
+Not every vendor export is a standard. Add an adapter and fixture when a new stable format is available.

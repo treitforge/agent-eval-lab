@@ -1,31 +1,22 @@
-# RepoScout design principles
+# Interface principles
 
-This directory is the source of truth for RepoScout's interface. The words **must**,
-**must not**, **should**, and **may** are normative. When implementation and these
-specifications disagree, update the implementation or make an explicit design-system
-decision here; do not create a local exception by accident.
+This directory is the source of truth for the Agent Eval Lab interface. The words **must** and **must not** identify requirements.
+
+If the implementation conflicts with these rules, update the implementation or the rule. Do not create an undocumented local exception.
 
 ## Product model
 
-RepoScout is an expert repository-evaluation workbench for sustained technical review. It
-is not a SaaS dashboard, marketing site, landing page, or generic administration template.
-It should feel precise, restrained, mature, technical, and evidence-first.
+Agent Eval Lab is an evidence workbench for the review of coding-agent runs. It is not a marketing site or generic administration dashboard.
 
-The design language combines Swiss-modernist information design, mature developer-tool
-interaction patterns, and compact enterprise data-table behavior without imitating a
-specific product. Use a disciplined grid, strong type alignment, deliberate asymmetry,
-hairline separators, low-chroma surfaces, and one restrained green accent.
+The interface must be precise, restrained, technical, and evidence-first. Use a disciplined grid, aligned text, hairline separators, neutral surfaces, and one dark green accent.
 
 ## Task hierarchy
 
-1. **Primary:** scan, filter, sort, and compare repository candidates.
-2. **Secondary:** select a candidate and inspect evidence, architecture, analysis,
-   qualification state, provenance, and the acceptance or rejection rationale.
-3. **Tertiary:** queue selected candidates, start discovery, and inspect operational
-   activity.
+1. **Primary:** Compare the factual results of all trials.
+2. **Secondary:** Select a trial and inspect its evidence, provenance, metrics, patch, and final response.
+3. **Tertiary:** Download facts or open a detailed report.
 
-The candidate list must remain the dominant visual object. Secondary and tertiary work
-must not displace or visually compete with it.
+The trial table must remain the main visual object. Secondary actions must not compete with the table.
 
 ## Information grammar
 
@@ -39,31 +30,29 @@ Group content in this order:
 6. subtle background change;
 7. enclosed container.
 
-Use the first method that makes a relationship clear. An enclosed container is exceptional
-and requires independent behavior such as a dialog, popover, side sheet, selectable object,
-or self-contained preview. The table is the page; never put it in a card.
+Use the first method that makes a relationship clear. Use an enclosed container only for an independent object, such as a dialog or side sheet.
+
+The table is the main surface. Do not put the table in a card.
 
 ## Interaction principles
 
-- Keep meaningful filters, status tabs, and the selected candidate in the URL.
-- Make the primary task apparent within one second.
-- Use semantic HTML and established accessible primitives.
-- Preserve the list when candidate detail opens.
-- Make selection and focus visible without relying on color alone.
-- Put uncommon row actions in an overflow menu; make the row or repository name open detail.
-- Reveal batch analysis only when eligible candidates are selected.
-- Use whitespace to express hierarchy, not to decorate empty space.
+- Make the primary task clear when the page opens.
+- Use semantic HTML and accessible controls.
+- Preserve the table when trial details open.
+- Make selection and focus visible without color alone.
+- Let a user open details from the trial row.
+- Use whitespace to show hierarchy.
 
 ## Decision test
 
-Before adding a surface, border, background, label, action, or duplicate value, ask whether
-removing it harms comprehension or task completion. If it does not, remove it. A blurred or
-squinted view must still read as a candidate workbench led by its table.
+Before you add an element, confirm that the element helps comprehension or task completion. Remove an element that has no clear function.
+
+The table must remain dominant when a user views the page from a distance.
 
 ## Specification map
 
-- Foundations define the only approved visual values in `src/styles/tokens.css`.
+- Foundations define the approved visual values in `design/tokens.css`.
 - Patterns define page-level composition and behavior.
 - Components define reusable interaction contracts.
 - `anti-patterns.md` defines hard visual budgets and forbidden output.
-- `scripts/ui-audit.mjs` enforces the mechanically detectable subset.
+- Tests must enforce rules that can be checked automatically.

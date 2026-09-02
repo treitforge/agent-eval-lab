@@ -1,6 +1,6 @@
 # Security and publication boundary
 
-Use a public framework and a private challenge bank.
+Keep the framework public. Keep active evaluation cases private.
 
 ## Safe to publish
 
@@ -8,7 +8,7 @@ Use a public framework and a private challenge bank.
 - Format adapters and synthetic fixtures.
 - Generic runner scripts.
 - Evidence definitions and evaluation-axis routing.
-- A toy task that is clearly marked as public and non-benchmark.
+- A toy task that is marked as public and not valid for a benchmark.
 - Sanitized results from a retired task.
 
 ## Keep private for an active evaluation
@@ -23,7 +23,7 @@ Use a public framework and a private challenge bank.
 
 ## Publication checklist
 
-Before you publish a report or retired case:
+Before you publish a report or retired case, do these steps:
 
 1. Search for tokens, credentials, email addresses, user names, and local paths.
 2. Remove private source code and command output.
@@ -32,4 +32,4 @@ Before you publish a report or retired case:
 5. State which fields were removed or transformed.
 6. Keep the original private artifact in an approved evidence location.
 
-Public framework code does not make an active evaluation invalid by itself. Public task-specific answers can make the result a recognition test instead of a coding test.
+Public framework code does not invalidate an evaluation. Public task answers can change a coding test into a recognition test.

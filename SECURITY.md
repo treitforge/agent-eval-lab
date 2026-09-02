@@ -2,12 +2,14 @@
 
 ## Report a vulnerability
 
-Use GitHub private vulnerability reporting when it is available for this repository. Do not open a public issue that contains an unredacted credential, private trajectory, unpublished task, or hidden verifier.
+Use GitHub private vulnerability reporting. Do not put a credential or private evaluation file in a public issue.
 
 ## Sensitive evaluation data
 
-Raw trajectories can contain source code, prompts, paths, command output, environment values, and model responses. Treat them as sensitive until you review and redact them.
+Raw trajectories can contain private data. This data can include source code, prompts, paths, command output, environment values, and model responses.
 
-The default `.gitignore` excludes `.runs/`, `artifacts/`, `reports/`, and common local export names. This protection is not complete. Review staged files before every push.
+Treat each raw trajectory as sensitive. Review and redact the trajectory before you share it.
 
-The example runner accepts a path to an external Codex authentication file. It passes the path to Harbor. It never copies the file into this repository or prints its content.
+The default `.gitignore` excludes common run and report paths. This protection is not complete. Review all staged files before each push.
+
+The example runner accepts a path to an external Codex authentication file. It gives only the path to Harbor. It does not copy or print the file.

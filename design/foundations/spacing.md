@@ -2,7 +2,7 @@
 
 ## Scale
 
-RepoScout uses a six-step 4px-based spacing scale. No intermediate values are approved.
+Use this six-step spacing scale. Do not use an intermediate spacing value.
 
 | Token | Value | Typical use |
 | --- | --- | --- |
@@ -13,9 +13,9 @@ RepoScout uses a six-step 4px-based spacing scale. No intermediate values are ap
 | `--rs-space-6` | 24px | Major region separation |
 | `--rs-space-8` | 32px | Largest page-level interval |
 
-`--rs-space-0` is available for resets. `auto` is valid for layout alignment. Use semantic
-size tokens for control height, table-row height, and header height; these are dimensions,
-not additions to the spacing scale.
+Use `--rs-space-0` for resets. Use `auto` for layout alignment.
+
+Use semantic size tokens for control, row, and header heights. These dimensions are not spacing values.
 
 ## Rules
 
@@ -23,5 +23,5 @@ not additions to the spacing scale.
 - Do not create arbitrary spacing values to make one composition fit.
 - Prefer alignment and a shared grid before increasing whitespace.
 - Keep table rows approximately 36–40px and controls approximately 32–36px high.
-- At 1440×900, the closed-inspector workbench should show at least 15 candidate rows.
-- Compact does not mean cramped: preserve clear row targets and readable evidence.
+- At 1440×900, show at least 15 trial rows when the inspector is closed.
+- Preserve clear row targets and readable evidence in a compact layout.

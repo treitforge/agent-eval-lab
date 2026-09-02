@@ -2,31 +2,30 @@
 
 ## Use
 
-Use a side sheet for a focused workflow that should preserve the workbench context:
+Use a side sheet for a focused workflow that must preserve the workbench context:
 
-- selected-candidate detail;
-- repository discovery;
-- compact operational activity.
+- selected-trial detail;
+- source evidence;
+- compact run activity.
 
-Do not use one to hide ordinary navigation or content that belongs in the table toolbar.
+Do not use a side sheet to hide normal navigation or table content.
 
 ## Modes
 
-On a wide desktop, the candidate inspector is docked at roughly 30–35% of the workspace. It is
-a persistent second surface with a square structural edge and no shadow. On narrower windows,
-it may float as an overlay using `--rs-radius-overlay` and `--rs-shadow-overlay`.
+On a wide desktop, the trial inspector uses 30–35% of the workspace. It is a persistent surface with a square edge and no shadow.
+
+On a narrow window, the inspector can float above the table. Use `--rs-radius-overlay` and `--rs-shadow-overlay` for this mode.
 
 ## Behavior
 
 - Provide a visible title and close control.
-- Move focus into modal variants and trap it only when the sheet is modal.
+- Move focus into a modal sheet. Trap focus only when the sheet is modal.
 - Return focus to the invoking action or selected row on close.
-- Support Escape for an overlay variant.
+- Let the Escape key close an overlay sheet.
 - Prevent background interaction only for a modal variant.
-- Keep important actions visible without stacking several full-width primary buttons.
+- Keep important actions visible. Do not stack multiple full-width primary buttons.
 
-Use alignment, headings, and dividers for internal grouping. Do not fill the sheet with nested
-cards or panels.
+Use alignment, headings, and dividers to group content. Do not put nested cards or panels in the sheet.
 
 ## Audit hooks
 

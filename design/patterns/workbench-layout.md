@@ -2,41 +2,38 @@
 
 ## Required topology
 
-Use a desktop evaluation workbench in this order:
+Use this order for the desktop evaluation workbench:
 
 1. compact application header;
 2. page title and one primary action;
-3. status tabs with inline counts;
-4. integrated search and filter toolbar;
-5. full-width candidate table;
-6. optional right-hand detail inspector;
-7. compact activity or job status region.
+3. full-width trial table;
+4. factual limits statement;
+5. right-hand trial inspector.
 
-The table occupies the full workspace when no inspector is open. When the inspector is open,
-allocate approximately 65–70% to the table and 30–35% to detail. The split must preserve the
-candidate list and its current scroll position.
+The table uses the full workspace when no inspector is open. When the inspector is open, give 65–70% of the width to the table.
+
+Give 30–35% of the width to the inspector. Preserve the trial list and its scroll position.
 
 ## Region behavior
 
 - Keep the application header compact and subordinate to the page task.
-- Put only one persistent primary action beside the title: **Discover repositories**.
-- Treat status counts as tabs or inline counters, not metrics.
-- Integrate filters immediately above the table with no surrounding panel.
-- Make table headers sticky within a long scrolling list.
-- Show jobs in an activity strip, drawer, or dedicated activity view. Collapse the region
-  when no useful activity exists.
-- Launch discovery in a side sheet or focused flow; do not reserve persistent workspace for
-  its form.
+- Put only one primary action beside the title: **Download facts**.
+- Put a trial count next to the comparison heading.
+- Make table headers sticky in a long list.
+- Keep the factual limits statement close to the table.
+- Put selected-trial evidence in the inspector.
 
 ## Responsive behavior
 
-The product is desktop-first. Preserve the table as long as practical. On narrower windows,
-the detail inspector may become an overlay side sheet, but closing it must return focus to the
-selected row. Do not translate the desktop table into a grid of candidate cards.
+The dashboard is desktop-first. Preserve the table on narrow windows when possible.
+
+The inspector can become an overlay on a narrow window. When it closes, return focus to the selected row.
+
+Do not convert the table into a grid of cards.
 
 ## Acceptance criteria
 
-- A squinted view is dominated by the candidate table.
+- A view from a distance is dominated by the trial table.
 - At 1440×900, at least 15 rows are visible with the inspector closed.
-- Secondary workflows do not compete with candidate review.
+- Secondary actions do not compete with trial review.
 - Persistent regions use no shadow, structural radius, or unnecessary enclosure.

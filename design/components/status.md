@@ -1,25 +1,26 @@
 # Status
 
-Status communicates an actual workflow state, never a category that plain text can express.
+A status communicates an actual run or verifier state. Do not use status formatting for ordinary metadata.
 
 ## Semantic mapping
 
 | State | Treatment |
 | --- | --- |
-| Accepted, completed | Success foreground and subtle background |
-| Held, queued, running, attention required | Warning foreground and subtle background |
-| Rejected, failed | Danger foreground and subtle background |
+| Successful, completed | Success foreground and subtle background |
+| Queued, running, attention required | Warning foreground and subtle background |
+| Failed | Danger foreground and subtle background |
 | Inactive, pending, unknown | Neutral foreground and subtle background |
 
-Use the matching `--rs-color-*-text`, `--rs-color-*-subtle`, and border tokens. The label must
-name the state; color is supplementary. Use `--rs-radius-control`, not a pill radius.
+Use matching text, subtle-background, and border tokens. The label must name the state. Color is a secondary cue.
+
+Use `--rs-radius-control`. Do not use a pill radius.
 
 ## Counts
 
-Workflow counts belong inline with status tabs. Use tabular numerals. Do not create one card per
-status and do not emphasize a count unless it changes a reviewer decision.
+Put run counts next to their labels. Use tabular numerals. Do not create one card for each status.
 
 ## Dynamic state
 
-Use an appropriate live region for meaningful asynchronous changes, without announcing every
-poll. Do not animate status decoratively. Preserve readable text when a row is selected.
+Use a live region for an important asynchronous change. Do not announce each status poll.
+
+Do not animate status for decoration. Keep status text readable when a row is selected.

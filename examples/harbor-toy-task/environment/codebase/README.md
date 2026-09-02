@@ -1,6 +1,6 @@
 # Scan Ledger
 
-Scan Ledger counts unique parcel scans from handheld-device uploads.
+Scan Ledger counts unique parcel scans from handheld scanner uploads.
 
 ```python
 from scan_ledger import ScanLedger
@@ -10,9 +10,11 @@ ledger.ingest(["PKG-100", "pkg-100", "PKG-101"])
 print(ledger.total)
 ```
 
-Identifiers are trimmed and converted to upper case. Blank identifiers are ignored. `snapshot()` returns identifiers in first-seen order.
+Scan Ledger removes spaces at the ends of each identifier. It converts each identifier to upper case. It ignores blank identifiers.
 
-Run the tests with:
+The `snapshot()` method returns the identifiers in first-seen order.
+
+Run the tests with this command:
 
 ```bash
 python -m unittest discover -s tests -v

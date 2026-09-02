@@ -1,15 +1,29 @@
-# Agent Eval Lab contributor instructions
-
-Use ASD-STE100 Simplified Technical English for documentation.
+# Repository instructions
 
 ## Purpose
 
-This repository contains fact-only tools for coding-agent evaluations. The tools extract evidence from run artifacts. They do not replace human evaluation.
+This repository contains fact-only tools for coding-agent evaluations. The tools extract evidence from run artifacts. They do not replace a human evaluation.
+
+## Documentation requirements
+
+- Write short and direct sentences.
+- Use active voice and present tense.
+- Give only one instruction in each sentence.
+- Use the same term for the same item.
+- Define an uncommon technical term before you use it.
+- Put a condition before the action that depends on it.
+- Use `must` for a requirement.
+- Use `can` for a capability.
+- Use `do not` for a prohibition.
+- Do not use idioms, slang, contractions, or decorative language.
+- Keep a procedural sentence at 20 words or fewer when possible.
+- Keep a descriptive sentence at 25 words or fewer when possible.
+- Use lists for sequences and sets of related facts.
 
 ## Required behavior
 
 - Preserve source references for each reported event.
-- Use an explicit status field to count a failure or success.
+- Use an explicit status field to count a failed or successful result.
 - Keep raw result counts separate from human judgments.
 - State when a source does not provide a timestamp, status, cost, token count, or duration.
 - Prefer ATIF or OTLP over a vendor-specific format when both are available.
@@ -27,13 +41,15 @@ Do not make these decisions for a human evaluator:
 - Do not write a submission-ready preference explanation.
 - Do not infer private chain-of-thought.
 
-You can count observable events. You can group facts under an evaluation axis. You can check whether a human-written claim is supported by a cited event.
+You can count observable events. You can group facts under an evaluation axis. You can check a human claim against a cited event.
 
 ## Public task boundary
 
-The task at `examples/harbor-toy-task/` is a teaching fixture. Its instruction and verifier are public by design. Do not present it as a valid benchmark.
+The task at `examples/harbor-toy-task/` is a teaching fixture. Its instruction and verifier are public. Do not present it as a valid benchmark.
 
-Do not add an active evaluation prompt, private test data, a hidden verifier, an expected patch, or a raw private trajectory to this repository. Keep active evaluation cases in a separate private repository.
+Do not add active evaluation material to this repository. This material includes prompts, private tests, hidden verifiers, expected patches, and raw private trajectories.
+
+Keep active evaluation cases in a separate private repository.
 
 ## Development checks
 
@@ -49,7 +65,7 @@ uv run mypy
 
 ## Repository structure
 
-- `src/trajectory_facts/`: adapters, normalization, analysis, reports, and dashboard.
+- `src/trajectory_facts/`: adapters, normalization, analysis, reports, and the dashboard.
 - `tests/`: deterministic unit and public-example tests.
 - `.codex/skills/trajectory-facts/`: reusable fact-analysis skill.
 - `docs/`: architecture, evidence, format, and safety documentation.

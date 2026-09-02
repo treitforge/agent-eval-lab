@@ -1,6 +1,6 @@
 # Architecture
 
-Agent Eval Lab separates collection, normalization, analysis, presentation, and human evaluation.
+Agent Eval Lab has separate stages for collection, normalization, analysis, presentation, and human evaluation.
 
 ## Data flow
 
@@ -28,34 +28,40 @@ format adapter ----> normalized RunRecord
 
 ### Adapters
 
-`src/trajectory_facts/adapters.py` detects the input shape. It converts the source document to a `RunRecord`. Each `ToolEvent` keeps a source reference, tool name, arguments, explicit result status, result text, timestamp, and duration when those fields exist.
+`src/trajectory_facts/adapters.py` detects the source format. It converts the source document to a `RunRecord`.
 
-An adapter must not guess that prose such as `failed to reproduce` is a failed tool result. It must use a nonzero return code, an error status, or an error flag.
+Each `ToolEvent` contains available source facts. These facts include the source reference, tool name, arguments, result status, text, timestamp, and duration.
+
+An adapter must not infer a result status from prose. It must use an explicit return code, status field, or error flag.
 
 ### Normalized records
 
-`src/trajectory_facts/models.py` defines three data types:
+`src/trajectory_facts/models.py` defines three record types:
 
-- `StepRecord` holds a source message or step.
-- `ToolEvent` holds a tool call and its result.
-- `RunRecord` holds one normalized run.
+- `StepRecord` contains a source message or step.
+- `ToolEvent` contains a tool call and its result.
+- `RunRecord` contains one normalized run.
 
-The normalized model is intentionally small. It preserves common facts without claiming that all producers have the same native schema.
+The normalized model contains only common facts. It does not require all producers to use the same native schema.
 
 ### Analysis
 
-`src/trajectory_facts/analyze.py` computes deterministic facts. Examples include exact repeated calls, failure-then-success groups, elapsed time, tool categories, and final-response size.
+`src/trajectory_facts/analyze.py` calculates deterministic facts. These facts include repeated calls, recovery groups, elapsed time, tool categories, and final-response size.
 
 The analyzer does not assign quality, blame, severity, or preference.
 
 ### Reports
 
-`src/trajectory_facts/render.py` writes Markdown. `src/trajectory_facts/cli.py` writes terminal, JSON, and Markdown output.
+`src/trajectory_facts/render.py` creates Markdown reports. `src/trajectory_facts/cli.py` creates terminal, JSON, and Markdown output.
 
 ### Dashboard
 
-`src/trajectory_facts/dashboard.py` reads Harbor trial directories. It joins trajectory facts with result metadata, verifier rewards, test output, and patch summaries. It creates a static workbench with no server dependency.
+`src/trajectory_facts/dashboard.py` reads Harbor trial directories. It combines trajectory facts with result data, verifier rewards, test output, and patch summaries.
+
+The dashboard is a static HTML file. It does not require a server.
 
 ## Trust boundary
 
-The analyzer treats trajectories as untrusted input. It does not execute trajectory content. The generated HTML escapes inserted text. The tool can still copy sensitive source text into a report. Review a report before you publish it.
+The analyzer treats each trajectory as untrusted input. It does not execute trajectory content. The dashboard escapes source text before it adds the text to HTML.
+
+A report can still contain sensitive source text. Review and redact each report before you publish it.

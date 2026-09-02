@@ -2,37 +2,37 @@
 
 ## Selection model
 
-The candidate list is the stable context; detail is an inspector, not a separate competing
-page composition. Selecting a row or its repository-name control opens the inspector directly.
-Do not add an “Explore” link to every row.
+The trial list is the stable context. Trial detail is an inspector and not a separate page.
 
-Keep the selected candidate in the URL so selection survives refresh and can be shared. The
-selected row must use at least two cues, such as a leading marker plus a subtle surface change,
-and should use `aria-current` or `aria-selected` where appropriate.
+Selecting a trial row opens the inspector. Do not add a separate detail link to each row.
+
+Keep the selected trial in the URL when the dashboard supports shareable state. Use at least two cues to identify the selected row.
+
+Use `aria-current` or `aria-selected` when it is appropriate.
 
 ## Inspector content
 
 Order content by reviewer need:
 
-1. identity and qualification state;
-2. decision rationale and principal evidence;
-3. qualification dimensions and analysis state;
-4. architecture and task affordances;
-5. provenance and machine-oriented evidence;
-6. review actions and notes.
+1. agent, model, and verifier outcome;
+2. run time, status, and exception data;
+3. agent-process facts;
+4. token and core-functionality facts;
+5. patch and codebase-context facts;
+6. failed results and final-response facts.
 
-Do not repeat list values unless the detail context needs them for orientation or action.
-Use dividers and headings within the inspector before enclosed subcontainers.
+Do not repeat table values unless the inspector needs them for context. Use headings and dividers before you add an enclosed container.
 
 ## Keyboard and focus
 
-- Rows or their primary controls must be keyboard reachable.
+- Trial rows or their primary controls must be keyboard accessible.
 - Opening detail moves focus only when necessary; otherwise preserve list navigation.
 - Closing an overlay inspector returns focus to the originating row.
-- Arrow-key row navigation may be provided when implemented with an appropriate grid pattern.
+- You can add arrow-key navigation when the table uses an appropriate grid pattern.
 - Selection, hover, and focus states must remain distinct.
 
 ## Loading and empty states
 
-Keep the list stable while detail loads. Use concise text for missing evidence. Do not insert
-an illustration, a blank card, or a second page-level spinner.
+Keep the trial list stable while details load. Use short text for missing evidence.
+
+Do not add an illustration, blank card, or second page-level spinner.

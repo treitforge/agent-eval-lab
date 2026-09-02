@@ -2,37 +2,35 @@
 
 ## Role
 
-The candidate table is RepoScout's primary work surface. It is full-width and never enclosed
-in a card. Its visual rhythm should favor comparison over decoration.
+The trial table is the primary work surface. It is full-width and is not in a card.
+
+The table must support comparison and not decoration.
 
 ## Required behavior
 
 - Use semantic table markup when the content is tabular.
 - Keep headers sticky for long lists.
 - Support sorting with a visible direction and `aria-sort`.
-- Keep filter, sort, tab, and page state in the URL.
-- Support row selection and multiselect without making the checkbox the only row target.
-- Open the inspector from the row or repository name.
+- Keep filter, sort, and page state in the URL when these functions exist.
+- Support row selection without making a checkbox the only row target.
+- Open the inspector from the trial row.
 - Put uncommon actions in one overflow menu.
-- Reveal contextual batch analysis only for one or more eligible selections.
 
 ## Density and columns
 
-Target 36–40px rows. Use 12px table headers, 13–14px row content, and tabular numerals for
-stars, counts, sizes, and scores. Candidate ID is monospaced. Repository name, language,
-stars, status, and principal evidence should remain scannable without excessive truncation.
+Use rows that are 36–40px high. Use 12px table headers and 13–14px row text.
 
-Align text left and comparable numeric values right. Avoid centered data. Truncate only lower
-priority prose and provide access to the full value. Use hairline row separators and a subtle
-neutral hover or selected surface; do not alternate decorative row colors.
+Use tabular numerals for time, counts, tokens, rewards, and patch sizes. Keep source references and identifiers in a monospace font.
+
+Align text to the left. Align comparable numeric values to the right. Do not center data.
+
+Truncate only lower-priority prose. Provide access to the full value. Use hairline row separators and a subtle selected surface.
 
 ## States
 
 - **Selected:** use multiple cues and preserve readable status treatments.
-- **Empty:** one concise table-row message plus the most relevant recovery action outside the
-  row, if any.
+- **Empty:** show one short table-row message. Put a recovery action outside the row when one exists.
 - **Loading:** preserve column widths and table position.
-- **Error:** state what could not load and offer a restrained retry action.
+- **Error:** identify the content that did not load. Provide a quiet retry action.
 
-Do not convert rows into cards, repeat an action link in every row, or use a pill for every
-metadata value.
+Do not convert rows into cards. Do not repeat an action link in each row. Do not use a pill for each metadata value.

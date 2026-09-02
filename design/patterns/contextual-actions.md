@@ -2,34 +2,27 @@
 
 ## Action hierarchy
 
-One persistent view has at most one prominent primary action. In the main workbench that action
-is **Discover repositories**. Mark the action with `data-ui-primary="true"` so the audit can
-enforce the budget.
+One persistent view has no more than one primary action. In the comparison workbench, that action is **Download facts**.
 
-Filtering and sorting update the list but are not competing page-level primary actions. Use a
-neutral or quiet treatment for explicit “Apply” or “Reset” controls when immediate updates are
-not appropriate.
+Mark the action with `data-ui-primary="true"`. An automated test can enforce this limit.
 
-## Selection actions
+Filtering and sorting are not primary page actions. Use a neutral or quiet treatment for an **Apply** or **Reset** control.
 
-Show **Queue analysis** only when one or more selected candidates are eligible. Place it in a
-contextual selection bar with the selection count. The bar may replace or sit immediately next
-to table controls, but must not become another permanent page header.
+## Trial actions
 
-When candidate detail is open, acceptance, hold, and rejection are semantic review actions.
-Make their consequences and disabled states explicit. Do not style all of them as primary or
-place multiple full-width solid buttons together.
+Open trial details when a user selects a row. Keep the selected row visible while the inspector is open.
+
+If a future action changes data, state its effect. Show its disabled state. Do not style all trial actions as primary.
 
 ## Row and overflow actions
 
-The row or repository name opens detail. Reserve overflow menus for uncommon actions that do
-not deserve a persistent column. Do not add repetitive “Explore,” “View,” or “Open details”
-links.
+The trial row opens its details. Use an overflow menu only for uncommon actions.
+
+Do not add a repeated **View** or **Open details** link to each row.
 
 ## Destructive and asynchronous actions
 
-- Require context or confirmation proportional to reversibility.
-- Keep progress close to the initiating action and reflect long-running jobs in the activity
-  region.
+- Require confirmation when an action is difficult to reverse.
+- Keep progress close to the action that started it.
 - Disable duplicate submission while an action is pending.
-- Return focus to a useful control when a sheet, dialog, or menu closes.
+- Return focus to the source control when a sheet, dialog, or menu closes.
