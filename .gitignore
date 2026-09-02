@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Local trajectory inputs and generated reports can contain private data.
+artifacts/
+reports/
+.runs/
+*.local.json
+*.local.jsonl
+examples/docker-public-config/buildx/
+
+# The committed Harbor sample contains synthetic patch artifacts.
+!examples/sample-harbor-job/*/artifacts/
+!examples/sample-harbor-job/*/artifacts/patch.diff
+
+# Editor and operating-system files.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trajectory Facts"
+  short_description: "Extract factual evidence from agent trajectories"
+  default_prompt: "Use $trajectory-facts to analyze this trajectory without ratings or editorial conclusions."

@@ -1,0 +1,12 @@
+{
+  "trial_name": "trial-a",
+  "task_name": "public/scan-ledger-batches",
+  "started_at": "2026-01-01T12:00:00Z",
+  "finished_at": "2026-01-01T12:00:08Z",
+  "agent_info": {
+    "name": "example-agent",
+    "version": "1.0",
+    "model_info": {"name": "example-model-a"}
+  },
+  "verifier_result": {"rewards": {"reward": 1.0}}
+}

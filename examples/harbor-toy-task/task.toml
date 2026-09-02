@@ -1,0 +1,30 @@
+schema_version = "1.4"
+
+[task]
+name = "public/scan-ledger-batches"
+version = "1.0.0"
+description = "Public teaching fixture for an agent evaluation workflow."
+authors = [{ name = "Treit Forge Labs" }]
+keywords = ["python", "state", "debugging", "public-toy"]
+
+[metadata]
+category = "other"
+tags = ["python", "debugging", "teaching-fixture"]
+
+[verifier]
+timeout_sec = 120.0
+
+[[verifier.collect]]
+service = "main"
+command = "mkdir -p /logs/artifacts; git config --global --add safe.directory /app; git -C /app add -A; git -C /app diff v0.1.0-init > /logs/artifacts/patch.diff"
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 300.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096

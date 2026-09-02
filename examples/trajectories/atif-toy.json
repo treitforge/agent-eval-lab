@@ -1,0 +1,76 @@
+{
+  "schema_version": "ATIF-v1.8",
+  "session_id": "synthetic-session-a",
+  "agent": {
+    "name": "example-agent",
+    "version": "1.0",
+    "model_name": "example-model-a"
+  },
+  "steps": [
+    {
+      "step_id": 1,
+      "source": "user",
+      "timestamp": "2026-01-01T12:00:00Z",
+      "message": "Fix the duplicate count and run the tests."
+    },
+    {
+      "step_id": 2,
+      "source": "agent",
+      "timestamp": "2026-01-01T12:00:02Z",
+      "message": "I will run the tests before I change the code.",
+      "tool_calls": [
+        {
+          "tool_call_id": "call-a-1",
+          "function_name": "shell",
+          "arguments": {
+            "command": "python -m unittest"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "call-a-1",
+            "content": "{\"returncode\": 1, \"output\": \"1 failed\"}",
+            "duration_ms": 400
+          }
+        ]
+      }
+    },
+    {
+      "step_id": 3,
+      "source": "agent",
+      "timestamp": "2026-01-01T12:00:05Z",
+      "message": "I changed the ledger state and will run the same tests again.",
+      "tool_calls": [
+        {
+          "tool_call_id": "call-a-2",
+          "function_name": "shell",
+          "arguments": {
+            "command": "python -m unittest"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "call-a-2",
+            "content": "{\"returncode\": 0, \"output\": \"3 passed\"}",
+            "duration_ms": 350
+          }
+        ]
+      }
+    },
+    {
+      "step_id": 4,
+      "source": "agent",
+      "timestamp": "2026-01-01T12:00:06Z",
+      "message": "Updated the ledger to preserve unique identifiers across upload batches. All three tests pass."
+    }
+  ],
+  "final_metrics": {
+    "total_prompt_tokens": 900,
+    "total_completion_tokens": 210,
+    "total_tokens": 1110
+  }
+}

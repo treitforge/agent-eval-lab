@@ -1,0 +1,6 @@
+{
+  "agent": {
+    "model_name": "example-model-b",
+    "kwargs": {"reasoning_effort": "synthetic"}
+  }
+}

@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-eval-lab"
+version = "0.1.0"
+description = "Fact-only trajectory analysis and comparison tools for coding-agent evaluations"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Treit Forge Labs" }]
+keywords = ["agents", "evaluation", "harbor", "trajectory", "atif", "opentelemetry"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/treitforge/agent-eval-lab"
+Repository = "https://github.com/treitforge/agent-eval-lab"
+Issues = "https://github.com/treitforge/agent-eval-lab/issues"
+
+[project.scripts]
+trajectory-facts = "trajectory_facts.cli:main"
+trajectory-dashboard = "trajectory_facts.dashboard:main"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15",
+    "ruff>=0.11",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 95
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src", "tests", "scripts"]
